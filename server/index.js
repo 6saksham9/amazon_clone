@@ -23,7 +23,7 @@ const app = express(); //initialized the express
 const DB = "mongodb+srv://Saksham:vrgJMCQ5GcL4IG3h@cluster0.yecwhfb.mongodb.net/?retryWrites=true&w=majority"
 
 //implementing middleware
-
+app.use(express.json());
 app.use(authRouter);
 
 //connections
@@ -52,7 +52,7 @@ mongoose.connect(DB).then(()=>{
 //can't do again n again calling for the api
 
 
-app.listen(PORT, () =>
+app.listen(PORT,"0.0.0.0", () =>
 {
     console.log(`'connected at port ${PORT}`);
 } );  //function() or ()=> both are correct
